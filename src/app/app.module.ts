@@ -10,18 +10,24 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { EditaisPage } from '../pages/editais/editais';
+
+import { HttpModule } from '@angular/http';
+import { ServicoProvider } from '../providers/servico/servico';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    HomePage, 
+    TabsPage,
+    EditaisPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule//faltou adicionar este cara para a api funcionar
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +35,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    EditaisPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ServicoProvider
   ]
 })
 export class AppModule {}
